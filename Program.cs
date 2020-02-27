@@ -53,6 +53,20 @@ namespace Marya_function_analysis
             return System.Math.Sqrt(sum / (N + 1));
         }
 
+        private static double GetValue()
+        {
+            string str;
+            double x;
+
+            do
+            {
+                str = Console.ReadLine();
+                x = double.Parse(str);
+            } while (double.IsNaN(x));
+
+            return x;
+        }
+
         static void Main(string[] args)
         {
             double a, b, c;
@@ -61,21 +75,21 @@ namespace Marya_function_analysis
             Console.WriteLine("Введите коэффициенты");
             
             Console.Write("a> ");
-            a = double.Parse(Console.ReadLine());
+            a = GetValue();
 
             Console.Write("b> ");
-            b = double.Parse(Console.ReadLine());
+            b = GetValue();
 
             Console.Write("c> ");
-            c = double.Parse(Console.ReadLine());
+            c = GetValue();
 
             Console.WriteLine("Введите интервал исследования");
 
             Console.Write("x0> ");
-            x0 = double.Parse(Console.ReadLine());
+            x0 = GetValue();
 
             Console.Write("x1> ");
-            x1 = double.Parse(Console.ReadLine());
+            x1 = GetValue();
 
             Func<double, double> f = (x) => a * x * x + b * x + c;
 
